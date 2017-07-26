@@ -1,7 +1,7 @@
 {
-  "name": "lookerbot",
-  "version": "0.0.12",
-  "description": "Lookerbot",
+  "name": "looker-slackbot",
+  "version": "0.0.13",
+  "description": "Slackbot for Looker integration",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/ts-node ./lib/index.ts",
