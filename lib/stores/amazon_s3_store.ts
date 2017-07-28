@@ -8,6 +8,10 @@ export class AmazonS3Store extends Store {
   }
 
   public storeImage(buffer: Buffer): Promise<string> {
+    AWS.config.update({
+      signatureVersion: 'v4'
+    });
+
     const key = this.randomPath()
     const region = process.env.SLACKBOT_S3_BUCKET_REGION
     const domain = region && (region !== "us-east-1") ?
@@ -20,8 +24,7 @@ export class AmazonS3Store extends Store {
       Body: buffer,
       Bucket: process.env.SLACKBOT_S3_BUCKET,
       ContentType: "image/png",
-      Key: key,
-      signatureVersion: 'v4'
+      Key: key
     }
 
     const s3 = new AWS.S3({
