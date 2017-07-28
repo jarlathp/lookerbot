@@ -21,6 +21,7 @@ export class AmazonS3Store extends Store {
       Bucket: process.env.SLACKBOT_S3_BUCKET,
       ContentType: "image/png",
       Key: key,
+      signatureVersion: 'v4'
     }
 
     const s3 = new AWS.S3({
